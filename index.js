@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 app.post('/auth', (req, res) => {
   const { id, pass } = req.body;
   if (id && pass) {
